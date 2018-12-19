@@ -16,9 +16,11 @@
 
 __author__ = 'marco'
 
-from flask import Blueprint, current_app, redirect, request
+from flask import Blueprint, current_app, redirect, request, url_for
 from flask_security import login_user
 from invenio_accounts.models import User
+from invenio_oauthclient.utils import get_safe_redirect_target
+
 
 blueprint = Blueprint(
     'zenodo_webauthclient',
@@ -31,10 +33,11 @@ def login():
     user = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_USER'))
     mail = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL'))
     current_app.logger.info('Try to authenticate %s with mail %s'%(user, mail))
-    user = User.query.filter_by(email="pippo@zenodo.org").one_or_none()
+    user = User.query.filter_by(email="info@zenodo.org").one_or_none()
 
     if user is not None:
         pass
-    print("this is the user %s"%str(user))
     login_user(user, remember=False)
-    return redirect('/')
+    next = request.args.get('next')
+
+    return redirect(next)
