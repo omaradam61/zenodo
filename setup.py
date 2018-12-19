@@ -220,6 +220,7 @@ setup(
             'zenodo_openaire = zenodo.modules.openaire.ext:ZenodoOpenAIRE',
             'zenodo_exporter = zenodo.modules.exporter.ext:InvenioExporter',
             'zenodo_frontpage = zenodo.modules.frontpage.ext:ZenodoFrontpage',
+            'zenodo_webauthclient = zenodo.modules.webauthclient.ext:ZenodoWebauthclient',
             'zenodo_stats = zenodo.modules.stats.ext:ZenodoStats',
         ],
         'invenio_base.api_apps': [
@@ -234,6 +235,7 @@ setup(
             'zenodo_communities = zenodo.modules.communities.views:blueprint',
             'zenodo_deposit = zenodo.modules.deposit.views:blueprint',
             'zenodo_frontpage = zenodo.modules.frontpage.views:blueprint',
+            'zenodo_webauthclient = zenodo.modules.webauthclient.views:blueprint',
             'zenodo_openaire = zenodo.modules.openaire.views:blueprint',
             'zenodo_support = zenodo.modules.support.views:blueprint',
             'zenodo_redirector = zenodo.modules.redirector.views:blueprint',
