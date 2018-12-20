@@ -19,14 +19,9 @@ __author__ = 'fmarco76'
 """Configuration file for delegated web authentication
 
 ================================ ==============================================
-`WEBAUTHCLIENT_REMOTE_USER`        Variable containing the user name.
-                                   **Default:** ``cn``.
-                                   
 `WEBAUTHCLIENT_REMOTE_MAIL`        Variable containing the user name.
                                    **Default:** ``mail``.
 ================================ ==============================================
 """
-
-WEBAUTHCLIENT_REMOTE_USER = 'eppn'
 
 WEBAUTHCLIENT_REMOTE_MAIL = 'mail'

@@ -16,11 +16,18 @@
 
 __author__ = 'marco'
 
+from datetime import datetime
 from flask import Blueprint, current_app, redirect, request, url_for
 from flask_security import login_user
+from flask_security.registerable import register_user
 from invenio_accounts.models import User
+from random import choice
+from string import ascii_lowercase, ascii_uppercase, digits
+from werkzeug.local import LocalProxy
 
-from re import split
+_security = LocalProxy(lambda: current_app.extensions['security'])
+_datastore = LocalProxy(lambda: _security.datastore)
+
 
 blueprint = Blueprint(
     'zenodo_webauthclient',
@@ -30,14 +37,14 @@ blueprint = Blueprint(
 
 @blueprint.route('/login')
 def login():
-    user = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_USER'))
     # mails = split(';|,',
     #     request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')))
     # mails = ['info@inveniosoftware.org', 'info@zenodo.org']
-    mails = 'info@zenodo.org'
-    current_app.logger.info('Try to authenticate %s with mails %s'%(user, mails))
+    mails = 'marco.fargetta@ct.infn.it'
+    current_app.logger.info('Try to authenticate a user with mails: %s'%mails)
 
     if isinstance(mails, str):
+        mail = mails
         user = User.query.filter_by(email=mail).one_or_none()
     else:
         for mail in mails:
@@ -46,9 +53,9 @@ def login():
                 break
 
     if user is None:
+        password = ''.join(choice(ascii_uppercase + ascii_lowercase + digits) for _ in range(16))
+        user = register_user(password=password, email=mail, active=True, confirmed_at=datetime.now())
 
-        pass
     login_user(user, remember=False)
-    next = request.args.get('next')
 
-    return redirect(next)
+    return redirect(request.args.get('next'))
