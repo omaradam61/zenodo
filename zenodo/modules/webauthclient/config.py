@@ -27,6 +27,6 @@ __author__ = 'fmarco76'
 ================================ ==============================================
 """
 
-WEBAUTHCLIENT_REMOTE_USER = 'cn'
+WEBAUTHCLIENT_REMOTE_USER = 'eppn'
 
 WEBAUTHCLIENT_REMOTE_MAIL = 'mail'
