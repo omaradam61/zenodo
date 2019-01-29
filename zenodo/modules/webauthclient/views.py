@@ -37,10 +37,8 @@ blueprint = Blueprint(
 
 @blueprint.route('/login')
 def login():
-    # mails = split(';|,',
-    #     request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')))
-    # mails = ['info@inveniosoftware.org', 'info@zenodo.org']
-    mails = 'marco.fargetta@ct.infn.it'
+    mails = split(';|,',
+        request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')))
     current_app.logger.info('Try to authenticate a user with mails: %s'%mails)
 
     if isinstance(mails, str):
