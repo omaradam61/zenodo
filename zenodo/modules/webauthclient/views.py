@@ -37,22 +37,18 @@ blueprint = Blueprint(
 
 @blueprint.route('/login')
 def login():
-    mails = split(';|,',
-        request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')))
-    current_app.logger.info('Try to authenticate a user with mails: %s'%mails)
+    current_app.logger.info('Try to authenticate a user with mails: %s'
+                            %request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')))
+    mails = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')).replace(';',',').split(',')
 
-    if isinstance(mails, str):
-        mail = mails
+    for mail in mails:
         user = User.query.filter_by(email=mail).one_or_none()
-    else:
-        for mail in mails:
-            user = User.query.filter_by(email=mail).one_or_none()
-            if user is not None:
-                break
+        if user is not None:
+            break
 
     if user is None:
         password = ''.join(choice(ascii_uppercase + ascii_lowercase + digits) for _ in range(16))
-        user = register_user(password=password, email=mail, active=True, confirmed_at=datetime.now())
+        user = register_user(password=password, email=mails[0], active=True, confirmed_at=datetime.now())
 
     login_user(user, remember=False)
 
