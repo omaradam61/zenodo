@@ -23,17 +23,9 @@
 -#}
 {%- if config.THEME_GOOGLE_ANALYTICS_ID %}
 <script type="text/javascript">
-var _paq = _paq || [];
-_paq.push(["setDomains", ["www.openaccessrepository.it"]]);
-_paq.push(["trackPageView"]);
-_paq.push(["enableLinkTracking"]);
-
-(function() {
-  var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.web.cern.ch/";
-  _paq.push(["setTrackerUrl", u+"piwik.php"]);
-  _paq.push(["setSiteId", "{{config.THEME_PIWIK_ID}}"]);
-  var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-  g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-})();
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '{{ config.THEME_GOOGLE_ANALYTICS_ID }}', 'auto');
+ga('send', 'pageview');
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 {%- endif %}
