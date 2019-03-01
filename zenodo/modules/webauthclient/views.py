@@ -17,7 +17,7 @@
 __author__ = 'marco'
 
 from datetime import datetime
-from flask import Blueprint, current_app, redirect, request, url_for
+from flask import Blueprint, current_app, redirect, request
 from flask_security import login_user
 from flask_security.registerable import register_user
 from invenio_accounts.models import User
