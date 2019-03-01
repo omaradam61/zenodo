@@ -2,7 +2,7 @@
   {
     "type": "fieldset",
     "title": "Communities",
-    "helptext": "Any user can create a community collection on Zenodo. Specify communities which you wish your upload to appear in. The owner of the community will be notified, and can either accept or reject your request.",
+    "helptext": "Any user can create a community collection on the INFN Open Access Repository. Specify communities which you wish your upload to appear in. The owner of the community will be notified, and can either accept or reject your request.",
     "fieldhint": "recommended",
     "items": [
       {
@@ -424,7 +424,7 @@
           "removeButtons": ""
         },
         "fa_cls": "fa-pencil",
-        "description": "Specify the conditions under which you grant users access to the files in your upload. User requesting access will be asked to justify how they fulfil the conditions. Based on the justification, you decide who to grant/deny access. You are not allowed to charge users for granting access to data hosted on Zenodo.",
+        "description": "Specify the conditions under which you grant users access to the files in your upload. User requesting access will be asked to justify how they fulfil the conditions. Based on the justification, you decide who to grant/deny access. You are not allowed to charge users for granting access to data hosted on the INFN Open Access Repository.",
         "condition": "model.access_right == 'restricted'"
       },
       {
@@ -435,7 +435,7 @@
           {
             "type": "uiselect",
             "key": "license",
-            "description": "Required. Selected license applies to all of your files displayed on the top of the form. If you want to upload some of your files under different licenses, please do so in separate uploads. If you cannot find the license you're looking for, include a relevant LICENSE file in your record and choose one of the <i>Other</i> licenses available (<i>Other (Open)</i>, <i>Other (Attribution)</i>, etc.). The supported licenses in the list are harvested from <a target='_blank' rel='noopener noreferrer' href='https://opendefinition.org'>opendefinition.org <i class='fa fa-external-link'></i></a> and <a target='_blank' rel='noopener noreferrer' href='https://spdx.org'>spdx.org <i class='fa fa-external-link'></i></a>. If you think that a license is missing from the list, please <a target='_blank' rel='noopener noreferrer' href='https://zenodo.org/support'>contact us</a>.",
+            "description": "Required. Selected license applies to all of your files displayed on the top of the form. If you want to upload some of your files under different licenses, please do so in separate uploads. If you cannot find the license you're looking for, include a relevant LICENSE file in your record and choose one of the <i>Other</i> licenses available (<i>Other (Open)</i>, <i>Other (Attribution)</i>, etc.). The supported licenses in the list are harvested from <a target='_blank' rel='noopener noreferrer' href='https://opendefinition.org'>opendefinition.org <i class='fa fa-external-link'></i></a> and <a target='_blank' rel='noopener noreferrer' href='https://spdx.org'>spdx.org <i class='fa fa-external-link'></i></a>. If you think that a license is missing from the list, please <a target='_blank' rel='noopener noreferrer' href='https://www.openaccessrepository.it/support'>contact us</a>.",
             "fa_cls": "fa-certificate",
             "placeholder": "Start typing a license name...",
             "required": true,
@@ -464,7 +464,7 @@
   {
     "type": "fieldset",
     "title": "Funding",
-    "description": "Zenodo is integrated into reporting lines for research funded by the European Commission via <a target='_blank' rel='noopener noreferrer' href='http://www.openaire.eu'><i class='fa fa-external-link'></i> OpenAIRE</a>. Specify grants which have funded your research, and we will let your funding agency know!",
+    "description": "The INFN Open Access Repository is integrated into reporting lines for research funded by the European Commission via <a target='_blank' rel='noopener noreferrer' href='http://www.openaire.eu'><i class='fa fa-external-link'></i> OpenAIRE</a>. Specify grants which have funded your research, and we will let your funding agency know!",
     "fieldhint": "recommended",
     "items": [
       {
@@ -472,7 +472,7 @@
         "key": "grants",
         "title": "Grants",
         "fa_cls": "fa-money",
-        "description": "Optional. OpenAIRE-supported projects only. For other funding acknowledgements, please use the <i>Additional Notes</i> field.<br>Note: a human Zenodo curator will need to validate your upload - you may experience a delay before it is available in OpenAIRE.",
+        "description": "Optional. OpenAIRE-supported projects only. For other funding acknowledgements, please use the <i>Additional Notes</i> field.<br>Note: a human INFN Open Access Repository curator will need to validate your upload - you may experience a delay before it is available in OpenAIRE.",
         "sortOptions": {
           "disabled": true
         },
@@ -860,7 +860,7 @@
       {
         "key": "conference_url",
         "title": "Website",
-        "description": "Optional. e.g. <a target='_blank' rel='noopener noreferrer' href='http://zenodo.org'>http://zenodo.org</a>"
+        "description": "Optional. e.g. <a target='_blank' rel='noopener noreferrer' href='https://www.openaccessrepository.it'>https://www.openaccessrepository.it</a>"
       },
       {
         "key": "conference_session",
