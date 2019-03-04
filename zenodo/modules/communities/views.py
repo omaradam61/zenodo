@@ -42,6 +42,7 @@ from zenodo.modules.records.resolvers import record_resolver
 blueprint = Blueprint(
     'zenodo_communities',
     __name__,
+    template_folder='templates',
     url_prefix='/communities',
 )
 
