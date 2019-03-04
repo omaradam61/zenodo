@@ -61,13 +61,13 @@
     <div class="pull-right">
       &nbsp;<a href="{{url_for('.new')}}" class="btn btn-primary"><i class="icon-plus-sign"></i> {{ _('New') }}</a>
     </div>
-    <strong>{{ _('Want your own community?') }}</strong>
+    <strong>{{ _('You can create you own community!') }}</strong>
   </h4>
-  <p>{{ _('It\'s easy. Just click the button to get started.') }}</p>
+  <p>{{ _('You can:') }}</p>
   <ul>
-    <li><strong>{{ _('Curate') }}</strong> &mdash; {{ _('accept/reject what goes in your community collection.') }}</li>
+    <li><strong>{{ _('Curate') }}</strong> &mdash; {{ _('accept/reject what goes in your community collection') }}</li>
     <li><strong>{{ _('Export') }}</strong> &mdash; {{ _('your community collection is automatically exported via OAI-PMH') }}</li>
-    <li><strong>{{ _('Upload') }}</strong> &mdash; {{ _('get custom upload link to send to people') }}</li>
+    <li><strong>{{ _('Upload') }}</strong> &mdash; {{ _('get custom upload link to send to your collaborators') }}</li>
   </ul>
   {% endif %}
 {% else %}
@@ -75,9 +75,9 @@
     <div class="pull-right">
       &nbsp;<a href="{{url_for('security.login')}}" class="btn btn-warning btn-large signup">{{ _('Log In') }}</a>
     </div>
-    <strong>{{ _('Want your own community?') }}</strong>
+    <strong>{{ _('You can create you own community!') }}</strong>
   </h4>
-  <p>{{ _('It\'s easy. Just click the button to get started.') }}</p>
+  <p>{{ _('Just login to get started. Then, you can:') }}</p>
   <ul>
     <li><strong>{{ _('Curate') }}</strong> &mdash; {{ _('accept/reject what goes in your community collection.') }}</li>
     <li><strong>{{ _('Export') }}</strong> &mdash; {{ _('your community collection is automatically exported via OAI-PMH') }}</li>
