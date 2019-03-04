@@ -29,3 +29,5 @@ from __future__ import absolute_import, print_function
 ZENODO_FRONTPAGE_BETA_FEATURES = [
     'citations'
 ]
+
+ZENODO_FRONTPAGE_COMMUNITY = 'zenodo'

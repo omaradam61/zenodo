@@ -28,7 +28,7 @@ from __future__ import absolute_import, print_function
 
 from elasticsearch_dsl.query import Q
 from invenio_search.api import RecordsSearch
-
+from flask import current_app
 
 class FrontpageRecordsSearch(RecordsSearch):
     """Search class for records that goes on the frontpage."""
@@ -37,9 +37,15 @@ class FrontpageRecordsSearch(RecordsSearch):
         """Default index and filter for frontpage search."""
 
         index = 'records'
-        default_filter = Q(
-            'query_string',
-            query=('communities:zenodo '
-                   'AND access_right:open '
-                   'AND relations.version.is_last:true')
-        )
+        default_filter = None
+
+        @classmethod
+        def update_community(cls, community):
+            cls.default_filter = Q(
+                'query_string',
+                query=('communities:%s '
+                       'AND access_right:open '
+                       'AND relations.version.is_last:true'
+                       % community
+                )
+            )

@@ -70,6 +70,9 @@ def index():
         flash(msg, category=current_app.config.get(
             'FRONTPAGE_MESSAGE_CATEGORY', 'info'))
 
+    FrontpageRecordsSearch.Meta.update_community(
+        current_app.config.get('ZENODO_FRONTPAGE_COMMUNITY'))
+
     return render_template(
         'zenodo_frontpage/index.html',
         records=FrontpageRecordsSearch()[:10].sort('-_created').execute(),
