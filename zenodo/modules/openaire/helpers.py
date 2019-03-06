@@ -38,14 +38,17 @@ from .proxies import current_openaire
 class _OAType(object):
     """OpenAIRE types."""
 
-    publication = 'publication'
-    dataset = 'dataset'
+    # Adding the suffix '-OA' publications and datasets will not be recognised
+    # as member of OpenAir and the ramaining part of code can be untouched
+    publication = 'publication-OA'
+    dataset = 'dataset-OA'
 
 
 def is_openaire_publication(record):
     """Determine if record is a publication for OpenAIRE."""
     oatype = ObjectType.get_by_dict(record.get('resource_type')).get(
         'openaire', {})
+    print('oatype: %s'%str(oatype))
     if not oatype or oatype['type'] != _OAType.publication:
         return False
 
