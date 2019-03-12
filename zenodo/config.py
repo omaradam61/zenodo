@@ -104,6 +104,8 @@ PIDSTORE_DATACITE_URL = "https://mds.datacite.org"
 PIDSTORE_DATACITE_TESTMODE = False
 #: DataCite API - Prefix for minting DOIs in (10.5072 is a test prefix).
 PIDSTORE_DATACITE_DOI_PREFIX = "10.5072"
+#: DataCite API - Suffix for minting DOIs in (doi=prefix/suffix/<id>).
+PIDSTORE_DATACITE_DOI_SUFFIX = "zenodo"
 #: DataCite MDS username.
 PIDSTORE_DATACITE_USERNAME = "CERN.ZENODO"
 #: DataCite MDS password.
