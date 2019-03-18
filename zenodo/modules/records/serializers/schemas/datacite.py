@@ -118,8 +118,7 @@ class DataCiteSchema(Schema):
 
     identifier = fields.Method('get_identifier', attribute='metadata.doi')
     titles = fields.List(fields.Nested(TitleSchema), attribute='metadata')
-    publisher = fields.Constant(current_app.config.get(
-        'THEME_SITENAME', 'Zenodo'))
+    publisher = fields.Method('get_publisher')
     publicationYear = fields.Function(
         lambda o: str(arrow.get(o['metadata']['publication_date']).year))
     subjects = fields.Method('get_subjects')
@@ -301,6 +300,9 @@ class DataCiteSchema(Schema):
                 date=obj['metadata']['publication_date'],
                 type='Issued')).data, ]
 
+    def get_publisher(self, obj):
+        return current_app.config.get(
+            'THEME_SITENAME', 'Zenodo')
 
 class DataCiteSchemaV1(DataCiteSchema):
     """Schema for records v1 in JSON."""
