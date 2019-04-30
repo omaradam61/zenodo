@@ -113,7 +113,7 @@ class RecordSchemaMARC21(Schema):
 
     journal = fields.Raw(attribute='metadata.journal')
 
-    _oai = fields.Raw(attribute='metadata._oai')
+    #_oai = fields.Raw(attribute='metadata._oai')
 
     _files = fields.Method('get_files')
 
@@ -160,7 +160,8 @@ class RecordSchemaMARC21(Schema):
         res = []
         for f in o['metadata'].get('_files', []):
             res.append(dict(
-                uri=u'https://zenodo.org/record/{0}/files/{1}'.format(
+                uri=u'{0}/record/{1}/files/{2}'.format(
+                    current_app.config.get('THEME_SITEURL','zenodo.org'),
                     o['metadata'].get('recid', ''), f['key']),
                 size=f['size'],
                 checksum=f['checksum'],
