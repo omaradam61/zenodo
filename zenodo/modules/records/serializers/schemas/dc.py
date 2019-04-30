@@ -27,6 +27,7 @@
 from __future__ import absolute_import, print_function
 
 import lxml.html
+from flask import current_app
 from marshmallow import Schema, fields
 
 from ...models import ObjectType
@@ -52,13 +53,15 @@ class DublinCoreV1(Schema):
 
     def get_identifiers(self, obj):
         """Get identifiers."""
+        print("Ciao Ciao")
         items = []
-        items.append(u'https://zenodo.org/record/{0}'.format(
+        items.append(u'{0}/record/{1}'.format(
+            current_app.config.get('THEME_SITEURL','zenodo.org'),
             obj['metadata']['recid']))
         items.append(obj['metadata'].get('doi', u''))
-        oai = obj['metadata'].get('_oai', {}).get('id')
-        if oai:
-            items.append(oai)
+        #oai = obj['metadata'].get('_oai', {}).get('id')
+        #if oai:
+        #    items.append(oai)
         return items
 
     def get_creators(self, obj):
