@@ -39,7 +39,7 @@ blueprint = Blueprint(
 def login():
     current_app.logger.info('Try to authenticate a user with mails: %s'
                             %request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')))
-    mails = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL')).replace(';',',').split(',')
+    mails = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL', '')).replace(';',',').split(',')
 
     for mail in mails:
         user = User.query.filter_by(email=mail).one_or_none()
