@@ -26,10 +26,8 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint, redirect, request, url_for
+from flask import Blueprint, Flask, redirect, request, url_for, current_app
 from invenio_search_ui.views import search as search_ui_search
-
-from .config import REDIRECTOR_EXTERNAL_REDIRECTS, ZENODO_TYPE_SUBTYPE_LEGACY
 
 blueprint = Blueprint(
     'zenodo_redirector',
@@ -73,7 +71,9 @@ def collections_type_redirect(type):
     """."""
     values = request.args.to_dict()
 
-    type, subtype = ZENODO_TYPE_SUBTYPE_LEGACY.get(type, ('', None))
+    type, subtype = current_app.config['ZENODO_TYPE_SUBTYPE_LEGACY'].get(
+        type, ('', None)
+    )
     values['type'] = type
     if subtype:
         values['subtype'] = subtype
@@ -132,7 +132,7 @@ def communities_provisional_user_redirect():
 def collections_search_redirect():
     """."""
     values = request.args.to_dict()
-    type, subtype = ZENODO_TYPE_SUBTYPE_LEGACY.get(
+    type, subtype = current_app.config['ZENODO_TYPE_SUBTYPE_LEGACY'].get(
         values.pop('cc'), ('', None))
     values['type'] = type
     if subtype:
@@ -147,5 +147,7 @@ def redirect_view_factory(url):
 
 
 # Add url rules for external redirects
-for rule, endpoint, url in REDIRECTOR_EXTERNAL_REDIRECTS:
-    blueprint.add_url_rule(rule, endpoint, redirect_view_factory(url))
+@blueprint.record
+def redirect_register(blueprint_setup):
+    for rule, endpoint, url in blueprint_setup.app.config['REDIRECTOR_EXTERNAL_REDIRECTS']:
+        blueprint.add_url_rule(rule, endpoint, redirect_view_factory(url))
