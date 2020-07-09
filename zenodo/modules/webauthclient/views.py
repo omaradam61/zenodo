@@ -42,13 +42,13 @@ def login():
     mails = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL', '')).replace(';',',').split(',')
 
     for mail in mails:
-        user = User.query.filter_by(email=mail).one_or_none()
+        user = User.query.filter_by(func.lower(User.email) == func.lower(mail)).one_or_none()
         if user is not None:
             break
 
     if user is None:
         password = ''.join(choice(ascii_uppercase + ascii_lowercase + digits) for _ in range(16))
-        user = register_user(password=password, email=mails[0], active=True, confirmed_at=datetime.now())
+        user = register_user(password=password, email=mails[0].lower(), active=True, confirmed_at=datetime.now())
 
     login_user(user, remember=False)
 
