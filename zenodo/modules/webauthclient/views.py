@@ -43,7 +43,7 @@ def login():
     mails = request.environ.get(current_app.config.get('WEBAUTHCLIENT_REMOTE_MAIL', '')).replace(';',',').split(',')
 
     for mail in mails:
-        user = User.query.filter_by(func.lower(User.email) == func.lower(mail)).one_or_none()
+        user = User.query.filter(func.lower(User.email) == func.lower(mail)).one_or_none()
         if user is not None:
             break
 
