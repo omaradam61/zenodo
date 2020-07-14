@@ -23,6 +23,7 @@ from flask_security.registerable import register_user
 from invenio_accounts.models import User
 from random import choice
 from string import ascii_lowercase, ascii_uppercase, digits
+from sqlalchemy import func
 from werkzeug.local import LocalProxy
 
 _security = LocalProxy(lambda: current_app.extensions['security'])
