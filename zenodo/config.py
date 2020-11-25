@@ -1148,7 +1148,7 @@ THEME_BREADCRUMB_ROOT_ENDPOINT = 'zenodo_frontpage.index'
 #: Twitter handle.
 THEME_TWITTERHANDLE = "@SomaliREN"
 #: Path to logo file.
-THEME_LOGO = "img/LOGO_INFN_OAR_W.png"
+THEME_LOGO = "img/sorer.png"
 #: Google Site Verification ids.
 THEME_GOOGLE_SITE_VERIFICATION = [
     "5fPGCLllnWrvFxH9QWI0l1TadV7byeEvfPcyK2VkS_s",
