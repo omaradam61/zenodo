@@ -76,12 +76,12 @@ def _(x):
 
 
 #: System sender email address
-ZENODO_SYSTEM_SENDER_EMAIL = 'system@zenodo.org'
+ZENODO_SYSTEM_SENDER_EMAIL = 'sorer-librarian@somaliren.org'
 #: Email address of admins
-ZENODO_ADMIN_EMAIL = 'admin@zenodo.org'
+ZENODO_ADMIN_EMAIL = 'sorer-admin@somaliren.org'
 
 #: Email address for support.
-SUPPORT_EMAIL = "info@zenodo.org"
+SUPPORT_EMAIL = "sorer-librarian@somaliren.org"
 MAIL_SUPPRESS_SEND = True
 
 # Application
@@ -1080,7 +1080,7 @@ SECURITY_LOGIN_USER_TEMPLATE = \
 
 SECURITY_CONFIRM_SALT = "CHANGE_ME"
 SECURITY_EMAIL_SENDER = SUPPORT_EMAIL
-SECURITY_EMAIL_SUBJECT_REGISTER = _("Welcome to Zenodo!")
+SECURITY_EMAIL_SUBJECT_REGISTER = _("Welcome to SORER!")
 SECURITY_LOGIN_SALT = "CHANGE_ME"
 SECURITY_PASSWORD_SALT = "CHANGE_ME"
 SECURITY_REMEMBER_SALT = "CHANGE_ME"
@@ -1140,17 +1140,20 @@ COMMUNITIES_REQUEST_EMAIL_SENDER = SUPPORT_EMAIL
 # Theme
 # =====
 #: Default site name.
-THEME_SITENAME = _("Zenodo")
+THEME_SITENAME = _("SORER")
 #: Default site URL (used only when not in a context - e.g. like celery tasks).
 THEME_SITEURL = "http://localhost:5000"
 #: Endpoint for breadcrumb root.
 THEME_BREADCRUMB_ROOT_ENDPOINT = 'zenodo_frontpage.index'
 #: Twitter handle.
-THEME_TWITTERHANDLE = "@zenodo_org"
+THEME_TWITTERHANDLE = "@SomaliREN"
 #: Path to logo file.
 THEME_LOGO = "img/LOGO_INFN_OAR_W.png"
 #: Google Site Verification ids.
-THEME_GOOGLE_SITE_VERIFICATION = []
+THEME_GOOGLE_SITE_VERIFICATION = [
+    "5fPGCLllnWrvFxH9QWI0l1TadV7byeEvfPcyK2VkS_s",
+    "Rp5zp04IKW-s1IbpTOGB7Z6XY60oloZD5C3kTM-AiY4"
+]
 
 # Google Analytics tracking
 THEME_GOOGLE_ANALYTICS_ID = "your-analytics-id"
