@@ -1,7 +1,7 @@
 #
 # Zenodo development docker build
 #
-FROM python:3.5
+FROM python:2.7
 MAINTAINER Zenodo <info@zenodo.org>
 
 ARG TERM=linux
@@ -11,11 +11,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get -qy upgrade --fix-missing --no-install-recommends \
     && apt-get -qy install --fix-missing --no-install-recommends \
-        apt-utils curl libcairo2-dev fonts-dejavu libfreetype6-dev \
+        apt-utils curl libcairo2-dev fonts-dejavu libfreetype6-dev npm\
     # Node.js
     && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
     && apt-get -qy install --fix-missing --no-install-recommends \
-        nodejs \
+       #&& npm install -g npm@4.0.5 \
+       #&& npm install -g n \
+       #&& n 7.4 \ 
     # Slim down image
     && apt-get clean autoclean \
     && apt-get autoremove -y \
