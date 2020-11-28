@@ -148,7 +148,7 @@ COLLECT_FILTER = 'zenodo.modules.theme.collect:collect_staticroot_removal'
 #: Default language.
 BABEL_DEFAULT_LANGUAGE = 'en'
 #: Default timezone.
-BABEL_DEFAULT_TIMEZONE = 'Europe/Zurich'
+BABEL_DEFAULT_TIMEZONE = 'Africa/Mogadishu'
 #: Other supported languages.
 I18N_LANGUAGES = []
 
