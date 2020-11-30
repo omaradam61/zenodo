@@ -136,10 +136,11 @@ DEBUG_TB_INTERCEPT_REDIRECTS = False
 
 # Assets
 # ======
+FLASK_DEBUG=1
 #: Switch of assets debug.
 ASSETS_DEBUG = False
 #: Switch of automatic building.
-ASSETS_AUTO_BUILD = False
+ASSETS_AUTO_BUILD = True
 #: Remove app.static_folder from source list of static folders.
 COLLECT_FILTER = 'zenodo.modules.theme.collect:collect_staticroot_removal'
 
@@ -1148,7 +1149,7 @@ THEME_BREADCRUMB_ROOT_ENDPOINT = 'zenodo_frontpage.index'
 #: Twitter handle.
 THEME_TWITTERHANDLE = "@SomaliREN"
 #: Path to logo file.
-THEME_LOGO = "img/sorer.png"
+THEME_LOGO = "img/SORER.svg"
 #: Google Site Verification ids.
 THEME_GOOGLE_SITE_VERIFICATION = [
     "5fPGCLllnWrvFxH9QWI0l1TadV7byeEvfPcyK2VkS_s",

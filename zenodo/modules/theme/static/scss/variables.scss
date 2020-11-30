@@ -23,8 +23,8 @@
 $btn-font-weight: 300;
 
 //$color1-gradient: #2BBCFF; //lighten(@color1, 15%);
-$color1-gradient: #193591;
-$color1: #193591;
+$color1-gradient: #ffffff;
+$color1: #ffffff;
 $color2: #0067c9;
 $color3: #7A9A95;
 $color4: #EF6D3B;
@@ -41,11 +41,11 @@ $headings45-font-weight: 400;
 
 $navbar-brand-padding-vertical: 20px;
 $navbar-default-bg: $color1;
-$navbar-default-brand-color: #fff;
-$navbar-default-link-color: lighten($color1, 60%);
-$navbar-default-link-active-color: #fff;
-$navbar-default-link-active-bg: transparentize(#fff, 0.9);
-$navbar-default-link-hover-color: #fff;
+$navbar-default-brand-color: #193591;
+$navbar-default-link-color:  #193591;//lighten($color1, 60%);
+$navbar-default-link-active-color: #193591;
+$navbar-default-link-active-bg: #ffe6e6; //transparentize(#fff, 0.9);
+$navbar-default-link-hover-color: #193591;
 $navbar-default-link-hover-bg: transparentize(#fff, 0.8);
 $navbar-height: 96px;
 
