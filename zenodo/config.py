@@ -136,11 +136,11 @@ DEBUG_TB_INTERCEPT_REDIRECTS = False
 
 # Assets
 # ======
-FLASK_DEBUG=1
+#FLASK_DEBUG=1
 #: Switch of assets debug.
 ASSETS_DEBUG = False
 #: Switch of automatic building.
-ASSETS_AUTO_BUILD = True
+ASSETS_AUTO_BUILD = False
 #: Remove app.static_folder from source list of static folders.
 COLLECT_FILTER = 'zenodo.modules.theme.collect:collect_staticroot_removal'
 
@@ -651,7 +651,7 @@ SIPSTORE_FILEPATH_MAX_LEN = 1000
 #: Standard record removal reasons.
 ZENODO_REMOVAL_REASONS = [
     ('', ''),
-    ('spam', 'Spam record, removed by Zenodo staff.'),
+    ('spam', 'Spam record, removed by SORER staff.'),
     ('uploader', 'Record removed on request by uploader.'),
     ('takedown', 'Record removed on request by third-party.'),
 ]
@@ -1141,7 +1141,7 @@ COMMUNITIES_REQUEST_EMAIL_SENDER = SUPPORT_EMAIL
 # Theme
 # =====
 #: Default site name.
-THEME_SITENAME = _("SORER")
+THEME_SITENAME = _("Somali Research and Education Repository")
 #: Default site URL (used only when not in a context - e.g. like celery tasks).
 THEME_SITEURL = "http://localhost:5000"
 #: Endpoint for breadcrumb root.

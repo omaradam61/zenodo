@@ -146,7 +146,7 @@ def test_record_delete(mocker, app, db, users, deposit, deposit_file):
     dc_mock().metadata_delete.assert_any_call('10.5072/zenodo.2')
     record = Record.get_record(record_uuid)
     assert record['removed_by'] == users[0]['id']
-    assert record['removal_reason'] == 'Spam record, removed by Zenodo staff.'
+    assert record['removal_reason'] == 'Spam record, removed by SORER staff.'
 
 
 def test_record_delete_v1(mocker, app, db, users, deposit, deposit_file):
@@ -204,7 +204,7 @@ def test_record_delete_v1(mocker, app, db, users, deposit, deposit_file):
     dc_mock().metadata_delete.assert_any_call('10.5072/zenodo.2')
     record = Record.get_record(rec1_id)
     assert record['removed_by'] == users[0]['id']
-    assert record['removal_reason'] == 'Spam record, removed by Zenodo staff.'
+    assert record['removal_reason'] == 'Spam record, removed by SORER staff.'
 
 
 def test_record_delete_v2(mocker, app, db, users, deposit, deposit_file):
@@ -264,7 +264,7 @@ def test_record_delete_v2(mocker, app, db, users, deposit, deposit_file):
     dc_mock().metadata_delete.assert_any_call('10.5072/zenodo.3')
     record = Record.get_record(rec2_id)
     assert record['removed_by'] == users[0]['id']
-    assert record['removal_reason'] == 'Spam record, removed by Zenodo staff.'
+    assert record['removal_reason'] == 'Spam record, removed by SORER staff.'
 
 
 def test_record_delete_legacy(mocker, app, db, users, deposit, deposit_file):
@@ -302,4 +302,4 @@ def test_record_delete_legacy(mocker, app, db, users, deposit, deposit_file):
     dc_mock().metadata_delete.assert_any_call('10.5072/zenodo.2')
     record = Record.get_record(record_uuid)
     assert record['removed_by'] == users[0]['id']
-    assert record['removal_reason'] == 'Spam record, removed by Zenodo staff.'
+    assert record['removal_reason'] == 'Spam record, removed by SORER staff.'
