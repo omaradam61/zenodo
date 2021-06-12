@@ -76,13 +76,13 @@ def _(x):
 
 
 #: System sender email address
-ZENODO_SYSTEM_SENDER_EMAIL = 'sorer-librarian@somaliren.org'
+ZENODO_SYSTEM_SENDER_EMAIL = 'librarian@somaliren.org'
 #: Email address of admins
-ZENODO_ADMIN_EMAIL = 'sorer-admin@somaliren.org'
+ZENODO_ADMIN_EMAIL = 'librarian@somaliren.org'
 
 #: Email address for support.
-SUPPORT_EMAIL = "sorer-librarian@somaliren.org"
-MAIL_SUPPRESS_SEND = True
+SUPPORT_EMAIL = "librarian@somaliren.org"
+MAIL_SUPPRESS_SEND = False
 
 # Application
 # ===========
@@ -156,7 +156,7 @@ I18N_LANGUAGES = []
 # Celery
 # ======
 #: Default broker (RabbitMQ on locahost).
-CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672//"
+CELERY_BROKER_URL = "amqp://guest:guest@zenodo-mq:5672//"
 #: Default Celery result backend.
 CELERY_RESULT_BACKEND = "redis://localhost:6379/1"
 #: Accepted content types for Celery.
